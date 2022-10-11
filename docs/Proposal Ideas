@@ -1,1 +1,37 @@
+IDEA: Creating a Spotify playlist based on the sentiment scores by detecting tweet sentiment.
 
+Description: The goal of this project is to allow users to obtain a customized spotify playlist based on their most recent mood. We will use Spotify and 
+Twitter APIs to pull the data, and then use a sentiment analysis API to inspect their tweets and songs, and calculate specific sentiment scores. 
+By comparing sentiment scores of tweets and songs, we will be able to match the song and users’ mood.
+
+Language: 
+Front-end: Javascript with REACT, HTML/CSS
+Back-end: Python with Flask framework
+Database: MongoDB or SQLite or MySQL
+
+Utilizing a database: The database can store the users’ information, recommended songs, and detected tweets.
+
+Two Public APIs: Spotify API, Twitter API, Google NLP
+
+Third Party Authorization: OAuth
+
+
+
+IDEA: Creating a web application to curate a list of ingredients from the nearest grocery stores for a certain meal picked by the user. 
+
+Description: The goal of this project is to allow users to pick a recipe or meal they want to cook, and obtain a list of ingredients and their prices 
+from the grocery stores that are near the user’s location.
+
+Language: 
+Front-end: Javascript with REACT, HTML/CSS. Will use Express.js framework for front-end 
+Back-end: Python with Flask framework. 
+Database: MySQL or MongoDB
+
+Utilizing a database: Once creating an account, the user can enter information such as preferred grocery stores, food they already have at home, and 
+allergies. 
+
+Two Public APIs: We can use an API to find grocery stores near the user’s location, and another API to determine which food items or products of interest 
+are being sold there. We will also use a recipe API to determine what other ingredients the user needs. 
+#Also we can use another api to see the costs of the produce/groceries we are looking to find. 
+
+Third Party Authorization: OAuth to create an account
