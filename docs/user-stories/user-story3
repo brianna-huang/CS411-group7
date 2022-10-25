@@ -1,0 +1,5 @@
+As a logged-in user, I want to be able to search for a food allergy so that I can add it to my profile.
+
+Description: Refer to user login story for how user logs in to website. Once logged in, a user will click on the 
+Allergy section of the website. This will bring them to a page where they can search for an allergy, select that 
+allergy, and add it to their list of allergies.
