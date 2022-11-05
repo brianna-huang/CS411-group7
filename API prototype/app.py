@@ -11,8 +11,8 @@ import requests
 app = Flask(__name__)
 
 @app.route('/')
-def get_ingredients():  
-    # param: recipe url link
+def get_recipe_ingredients():  
+    # param: recipe url link. hardcoded it for now
     # return: list of ingredients in the recipe
     url = "https://mycookbook-io1.p.rapidapi.com/recipes/rapidapi"
     payload = "https://www.jamieoliver.com/recipes/vegetables-recipes/superfood-salad/"
@@ -25,6 +25,19 @@ def get_ingredients():
     response = requests.request("POST", url, data=payload, headers=headers)
     parse_response = json.loads(response)
     return(parse_response["ingredients"])
+
+def get_target_products():
+    # param: product keyword, hardcoded "apples" for now
+    # return: list of 5 top products from target
+    url = "https://target-com-store-product-reviews-locations-data.p.rapidapi.com/product/search"
+    querystring = {"store_id":"3991","keyword":"apples","offset":"0","limit":"5","sponsored":"1","rating":"0"}
+    headers = {
+        "X-RapidAPI-Key": "a4e2fc244bmshd6877fd389df594p162eb8jsn5b123867a7d7",
+        "X-RapidAPI-Host": "target-com-store-product-reviews-locations-data.p.rapidapi.com"
+    }
+    response = requests.request("GET", url, headers=headers, params=querystring)
+    parse_response = json.loads(response)
+    return(parse_response)
 
 if __name__ == '__main__':
     app.run()
