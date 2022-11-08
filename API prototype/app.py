@@ -1,5 +1,5 @@
-from flask import Flask, render_template
-import urllib.request, json
+from flask import Flask
+import json
 import requests
 
 # Enter following into terminal to install framework & libraries:
@@ -25,19 +25,21 @@ def get_recipe_ingredients():
     response = requests.request("POST", url, data=payload, headers=headers)
     parse_response = json.loads(response)
     return(parse_response["ingredients"])
-
 def get_target_products():
     # param: product keyword, hardcoded "apples" for now
-    # return: list of 5 top products from target
+    # returns: list of 3 top products from target as a dictionary {product name, url, price}
     url = "https://target-com-store-product-reviews-locations-data.p.rapidapi.com/product/search"
-    querystring = {"store_id":"3991","keyword":"apples","offset":"0","limit":"5","sponsored":"1","rating":"0"}
+    querystring = {"store_id":"3991","keyword":"apples","offset":"0","limit":"3","sponsored":"1","rating":"0"}
     headers = {
         "X-RapidAPI-Key": "a4e2fc244bmshd6877fd389df594p162eb8jsn5b123867a7d7",
         "X-RapidAPI-Host": "target-com-store-product-reviews-locations-data.p.rapidapi.com"
     }
-    response = requests.request("GET", url, headers=headers, params=querystring)
-    parse_response = json.loads(response)
-    return(parse_response)
+    response = requests.request('GET', url, headers=headers, params=querystring)
+    products_dict = json.loads(response.text)
+    return_dict = {}
+    for item in products_dict["products"]:
+        return_dict[item["item"]["product_description"]["title"]] = (item["item"]["enrichment"]["buy_url"], item["price"]["formatted_current_price"])
+    return (return_dict)
 
 if __name__ == '__main__':
     app.run()
