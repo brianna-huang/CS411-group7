@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request, render_template
 import json
 import requests
 
@@ -11,7 +11,19 @@ import requests
 app = Flask(__name__)
 
 
-@app.route('/')
+def get_value_related_info(value):
+    return {value}
+
+
+@app.route('/', methods=['POST', 'GET'])
+def getvalue():
+    if request.method == "POST":
+        HTML_info = request.form['search']
+        return get_value_related_info(HTML_info)
+    return render_template('form.html', text="")
+
+
+@app.route('/search', methods=['POST'])
 def get_recipe_ingredients():  
     # API subscription is not complete, so the requests won't go through yet!
     # param: still need to implement recipe url link passed from front-end. hardcoded it for now
@@ -23,9 +35,9 @@ def get_recipe_ingredients():
         "X-RapidAPI-Key": "a4e2fc244bmshd6877fd389df594p162eb8jsn5b123867a7d7",
         "X-RapidAPI-Host": "mycookbook-io1.p.rapidapi.com"
     }
-#     response = requests.request("POST", url, data=payload, headers=headers)
-#     recipe_dict = json.loads(response.text)
-#     return(ingredients_dict[0]["ingredients"])
+    response = requests.request("POST", url, data=payload, headers=headers)
+    recipe_dict = json.loads(response.text)
+    return(recipe_dict[0]["ingredients"])
 
 
 def get_target_products():
