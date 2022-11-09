@@ -23,9 +23,9 @@ def get_recipe_ingredients():
         "X-RapidAPI-Key": "a4e2fc244bmshd6877fd389df594p162eb8jsn5b123867a7d7",
         "X-RapidAPI-Host": "mycookbook-io1.p.rapidapi.com"
     }
-    response = requests.request("POST", url, data=payload, headers=headers)
-    recipe_dict = json.loads(response.text)
-    return(ingredients_dict[0]["ingredients"])
+#     response = requests.request("POST", url, data=payload, headers=headers)
+#     recipe_dict = json.loads(response.text)
+#     return(ingredients_dict[0]["ingredients"])
 
 
 def get_target_products():
@@ -37,12 +37,12 @@ def get_target_products():
         "X-RapidAPI-Key": "a4e2fc244bmshd6877fd389df594p162eb8jsn5b123867a7d7",
         "X-RapidAPI-Host": "target-com-store-product-reviews-locations-data.p.rapidapi.com"
     }
-    response = requests.request('GET', url, headers=headers, params=querystring)
-    products_dict = json.loads(response.text)
-    return_dict = {}
-    for item in products_dict["products"]:
-        return_dict[item["item"]["product_description"]["title"]] = (item["item"]["enrichment"]["buy_url"], item["price"]["formatted_current_price"])
-    return (return_dict)
+#     response = requests.request('GET', url, headers=headers, params=querystring)
+#     products_dict = json.loads(response.text)
+#     return_dict = {}
+#     for item in products_dict["products"]:
+#         return_dict[item["item"]["product_description"]["title"]] = (item["item"]["enrichment"]["buy_url"], item["price"]["formatted_current_price"])
+#     return (return_dict)
 
 
 if __name__ == '__main__':
