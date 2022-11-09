@@ -2,7 +2,7 @@ from flask import Flask, request, render_template
 import json
 import requests
 
-# Enter following into terminal to install framework & libraries:
+# Enter into terminal to install framework & libraries:
 # python3 -m venv venv
 # source venv/bin/activate
 # pip install flask
@@ -25,7 +25,6 @@ def getvalue():
 
 @app.route('/search', methods=['POST'])
 def get_recipe_ingredients():  
-    # API subscription is not complete, so the requests won't go through yet!
     # param: still need to implement recipe url link passed from front-end. hardcoded it for now
     # return: list of ingredients in the recipe
     url = "https://mycookbook-io1.p.rapidapi.com/recipes/rapidapi"
@@ -40,15 +39,16 @@ def get_recipe_ingredients():
     return(recipe_dict[0]["ingredients"])
 
 
-def get_target_products():
-    # param: still need to implement product keyword passed from front-end, hardcoded "apples" for now
-    # returns: dictionary of 3 top products from target {product name: url, price}
-    url = "https://target-com-store-product-reviews-locations-data.p.rapidapi.com/product/search"
-    querystring = {"store_id":"3991","keyword":"apples","offset":"0","limit":"3","sponsored":"1","rating":"0"}
-    headers = {
-        "X-RapidAPI-Key": "a4e2fc244bmshd6877fd389df594p162eb8jsn5b123867a7d7",
-        "X-RapidAPI-Host": "target-com-store-product-reviews-locations-data.p.rapidapi.com"
-    }
+# # FOR LATER USAGE
+# def get_target_products():
+#     # param: still need to implement product keyword passed from front-end, hardcoded "apples" for now
+#     # returns: dictionary of 3 top products from target {product name: url, price}
+#     url = "https://target-com-store-product-reviews-locations-data.p.rapidapi.com/product/search"
+#     querystring = {"store_id":"3991","keyword":"apples","offset":"0","limit":"3","sponsored":"1","rating":"0"}
+#     headers = {
+#         "X-RapidAPI-Key": "a4e2fc244bmshd6877fd389df594p162eb8jsn5b123867a7d7",
+#         "X-RapidAPI-Host": "target-com-store-product-reviews-locations-data.p.rapidapi.com"
+#     }
 #     response = requests.request('GET', url, headers=headers, params=querystring)
 #     products_dict = json.loads(response.text)
 #     return_dict = {}
