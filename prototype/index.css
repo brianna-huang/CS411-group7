@@ -1,0 +1,73 @@
+.proj-title{
+    font-family: cursive;
+    color: black;
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 5px;
+    margin-top: 50px;
+    text-decoration: underline;
+}
+.sign-up{
+    background-color:blue;
+    border-style: solid;
+    color: white;
+    height: 40px;
+    width: 100px;
+    margin: 8px;
+    border-radius: 20px;
+    margin-top: 1px;
+    margin-right: 2px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.log{
+    background-color:blue;
+    border-style: solid;
+    color: white;
+    height: 40px;
+    width: 100px;
+    border-radius: 20px;
+    margin-top: 1px;
+    margin-right: 108px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.team{
+    background-color:blue;
+    border-style: solid;
+    color: white;
+    height: 40px;
+    width: 100px;
+    margin: 8px;
+    border-radius: 20px;
+    margin-top: 1px;
+    margin-right: 217px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.log:hover{
+    text-decoration: underline;
+}
+.sign-up:hover {
+    text-decoration: underline;
+}
+.team:hover{
+    text-decoration: underline;
+}
+.targetbanner{
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+.search-bar{
+    margin-bottom:25px;
+    display: block;
+    width: 1417px;
+    height:30px;
+
+}
