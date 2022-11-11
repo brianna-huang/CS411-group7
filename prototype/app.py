@@ -37,15 +37,39 @@ def get_recipe_ingredients():
     response = requests.request("POST", url, data=payload, headers=headers)
     # print(response.text)
     recipe_dict = json.loads(response.text)
-    return recipe_dict[0]["ingredients"]
+    # return recipe_dict[0]["ingredients"]
+    return_string = ""
+    for ingredient in recipe_dict[0]["ingredients"]:
+        return_string = return_string + ingredient + "<br/>"
+    return return_string
 
 
-# # FOR LATER USAGE
-# def get_target_products():
-#     # param: still need to implement product keyword passed from front-end, hardcoded "apples" for now
-#     # returns: dictionary of 3 top products from target {product name: url, price}
+# def parse_ingredients():  
+#     # param: still need to implement recipe url link passed from front-end. hardcoded it for now
+#     # return: list of ingredients in the recipe
+#     url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/parseIngredients"
+
+#     payload = "ingredientList=" + get_recipe_ingredients() + "&servings=2"
+#     headers = {
+#         "content-type": "application/x-www-form-urlencoded",
+#         "X-RapidAPI-Key": "a4e2fc244bmshd6877fd389df594p162eb8jsn5b123867a7d7",
+#         "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
+#     }
+#     response = requests.request("POST", url, data=payload, headers=headers)
+#     ingredient_dict = json.loads(response.text)
+#     return_string = ""
+#     for ingredient in ingredient_dict:
+#         target_products = get_target_products(ingredient["name"])
+#         return_string = return_string + target_products
+#         # return_string = return_string + ingredient["original"] + ":<br/>" + "ingredient: " + ingredient["name"]\
+#         # + "<br/>" + "amount: " + str(ingredient["amount"]) + " " + ingredient["unit"]
+#     return return_string
+
+# def get_target_products(ingredient):
+#     # param: still need to implement product keyword passed from front-end
+#     # returns: dictionary of 2 top products from target {product name: url, price}
 #     url = "https://target-com-store-product-reviews-locations-data.p.rapidapi.com/product/search"
-#     querystring = {"store_id":"3991","keyword":"apples","offset":"0","limit":"3","sponsored":"1","rating":"0"}
+#     querystring = {"store_id":"3991","keyword":ingredient,"offset":"0","limit":"2","sponsored":"1","rating":"0"}
 #     headers = {
 #         "X-RapidAPI-Key": "a4e2fc244bmshd6877fd389df594p162eb8jsn5b123867a7d7",
 #         "X-RapidAPI-Host": "target-com-store-product-reviews-locations-data.p.rapidapi.com"
@@ -55,7 +79,11 @@ def get_recipe_ingredients():
 #     return_dict = {}
 #     for item in products_dict["products"]:
 #         return_dict[item["item"]["product_description"]["title"]] = (item["item"]["enrichment"]["buy_url"], item["price"]["formatted_current_price"])
-#     return (return_dict)
+#     return_string = ""
+#     for item in return_dict:
+#         return_string = return_string + item + ":<br/>" + "price:" + return_dict[item][1] + "<br/>" + "url: " + return_dict[item][0] + "<br/>"
+#     return return_string
+
 
 
 if __name__ == '__main__':
