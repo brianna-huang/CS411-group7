@@ -31,12 +31,13 @@ def get_recipe_ingredients():
     payload = "https://www.jamieoliver.com/recipes/vegetables-recipes/superfood-salad/"
     headers = {
         "content-type": "text/plain",
-        "X-RapidAPI-Key": "a4e2fc244bmshd6877fd389df594p162eb8jsn5b123867a7d7",
+        "X-RapidAPI-Key": "0d56b851c9msh6f98a10ad6a3725p123f86jsnaefb33f76036",
         "X-RapidAPI-Host": "mycookbook-io1.p.rapidapi.com"
     }
     response = requests.request("POST", url, data=payload, headers=headers)
+    # print(response.text)
     recipe_dict = json.loads(response.text)
-    return(recipe_dict[0]["ingredients"])
+    return recipe_dict[0]["ingredients"]
 
 
 # # FOR LATER USAGE
