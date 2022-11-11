@@ -1,0 +1,7 @@
+The languages we are using for the website design are HTML and CSS which we chose because of the numerous features and elements they allow us to 
+include in our website. In order for the front-end to communicate with the back-end, we are using Javascript and React.js. We chose to use React.js 
+over Angular.js because React.js is a better library/framework to use to curate an accessible website for users to interact with. In the back-end, 
+we chose to use Python with the Flask framework. We chose to use Flask over Django because Flask is flexible, easy to use, and is very well-documented. 
+Flask also makes it very smooth and easy to include APIs in our application. Django does overall have more features and is helpful for creating more 
+complex projects but for the scope of this project, because it is small-scale, easy-to-use, and also because several members of our team are familiar 
+with Flask, we believe that Flask is the better choice.
