@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, jsonify
 import json
 import requests
 
@@ -12,7 +12,7 @@ app = Flask(__name__)
 
 
 def get_value_related_info(value):
-    return {value}
+    return (value)
 
 
 @app.route('/', methods=['POST', 'GET'])
@@ -28,7 +28,7 @@ def get_recipe_ingredients():
     # param: still need to implement recipe url link passed from front-end. hardcoded it for now
     # return: list of ingredients in the recipe
     url = "https://mycookbook-io1.p.rapidapi.com/recipes/rapidapi"
-    payload = "https://www.jamieoliver.com/recipes/vegetables-recipes/superfood-salad/"
+    payload = getvalue().encode()
     headers = {
         "content-type": "text/plain",
         "X-RapidAPI-Key": "0d56b851c9msh6f98a10ad6a3725p123f86jsnaefb33f76036",
