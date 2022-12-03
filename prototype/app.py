@@ -1,14 +1,34 @@
 from flask import Flask, request, render_template, jsonify
 import json
 import requests
+from flaskext.mysql import MySQL
+import flask_login
 
 # Enter into terminal to install framework & libraries:
 # python3 -m venv venv
 # source venv/bin/activate
 # pip install flask
 # pip install requests
+# pip install flask-mysqldb
+# pip install flask-login
 
 app = Flask(__name__)
+
+mysql = MySQL()
+app.secret_key = 'your secret key'
+
+#These will need to be changed according to your creditionals
+app.config['MYSQL_DATABASE_USER'] = 'root'
+app.config['MYSQL_DATABASE_PASSWORD'] = 'password1' # ENTER YOUR DATABASE PASSWORD HERE
+app.config['MYSQL_DATABASE_DB'] = 'userprofile'
+app.config['MYSQL_DATABASE_HOST'] = 'localhost'
+
+mysql.init_app(app)
+
+# conn = mysql.connect()
+# cursor = conn.cursor()
+# cursor.execute("SELECT email from Users")
+# users = cursor.fetchall()
 
 
 def get_value_related_info(value):
@@ -24,7 +44,7 @@ def getvalue():
 
 
 @app.route('/search', methods=['POST'])
-def get_recipe_ingredients():  
+def get_recipe_ingredients():
     # param: still need to implement recipe url link passed from front-end. hardcoded it for now
     # return: list of ingredients in the recipe
     url = "https://mycookbook-io1.p.rapidapi.com/recipes/rapidapi"
@@ -42,6 +62,7 @@ def get_recipe_ingredients():
     for ingredient in recipe_dict[0]["ingredients"]:
         return_string = return_string + ingredient + "\n"
     return(call_target_api(parse_ingredients(return_string)))
+
     # return return_string
 
 def parse_ingredients(recipe_ingredients):  
