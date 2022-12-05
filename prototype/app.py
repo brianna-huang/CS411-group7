@@ -1,21 +1,40 @@
-from flask import Flask, request, render_template, jsonify
+from flask import Flask, request, render_template, jsonify,url_for,redirect,session
+from authlib.integrations.flask_client import OAuth
 import json
 import requests
 from flaskext.mysql import MySQL
+
+
 import flask_login
 
 # Enter into terminal to install framework & libraries:
 # python3 -m venv venv
-# source venv/bin/activate
+# mac -> source venv/bin/activate , windows ->.\venv\Scripts\activate
 # pip install flask
 # pip install requests
-# pip install flask-mysqldb
+# pip install Authlib requests
+# mac -> pip install flask-mysqldb , windows -> pip install flask-mysql
 # pip install flask-login
+# pip install flask flask_sqlalchemy flask_login flask_bcrypt flask_wtf wtforms email_validator
 
 app = Flask(__name__)
 
 mysql = MySQL()
 app.secret_key = 'your secret key'
+#oauth
+oauth = OAuth(app)
+google = oauth.register(
+    name='google',
+    client_id=("872397603918-5m0upqbbck7eesob44d9atv81247dku4.apps.googleusercontent.com"),
+    client_secret=("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"),
+    access_token_url='https://accounts.google.com/o/oauth2/token',
+    access_token_params=None,
+    authorize_url='https://accounts.google.com/o/oauth2/auth',
+    authorize_params=None,
+    api_base_url='https://www.googleapis.com/oauth2/v1/',
+    userinfo_endpoint='https://openidconnect.googleapis.com/v1/userinfo',  # This is only needed if using openId to fetch user info
+    client_kwargs={'scope': 'openid email profile'},
+)
 
 #These will need to be changed according to your creditionals
 app.config['MYSQL_DATABASE_USER'] = 'root'
@@ -42,6 +61,25 @@ def getvalue():
         return get_value_related_info(HTML_info)
     return render_template('form.html', text="")
 
+# Authentication
+@app.route('/login')
+def login():
+    google = oauth.create_client('google')  # create the google oauth client
+    redirect_uri = url_for('authorize', _external=True)
+    return google.authorize_redirect(redirect_uri)
+
+@app.route('/authorize')
+def authorize():
+    google = oauth.create_client('google')  # create the google oauth client
+    token = google.authorize_access_token()  # Access token from google (needed to get user info)
+    resp = google.get('userinfo')  # userinfo contains stuff u specificed in the scrope
+    user_info = resp.json()
+    user = oauth.google.userinfo()  # uses openid endpoint to fetch user info
+    # Here you use the profile/user data that you got and query your database find/register the user
+    # and set ur own data in the session not the profile from google
+    session['profile'] = user_info
+    session.permanent = True  # make the session permanant so it keeps existing after broweser gets closed
+    return redirect('/')
 
 @app.route('/search', methods=['POST'])
 def get_recipe_ingredients():
@@ -111,4 +149,5 @@ def get_target_products(ingredient):
 
 
 if __name__ == '__main__':
+    app.debug = True
     app.run()
