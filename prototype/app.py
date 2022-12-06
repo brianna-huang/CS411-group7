@@ -16,6 +16,7 @@ import flask_login
 # mac -> pip install flask-mysqldb , windows -> pip install flask-mysql
 # pip install flask-login
 # pip install flask flask_sqlalchemy flask_login flask_bcrypt flask_wtf wtforms email_validator
+# run app.py
 
 app = Flask(__name__)
 
@@ -34,6 +35,7 @@ google = oauth.register(
     api_base_url='https://www.googleapis.com/oauth2/v1/',
     userinfo_endpoint='https://openidconnect.googleapis.com/v1/userinfo',  # This is only needed if using openId to fetch user info
     client_kwargs={'scope': 'openid email profile'},
+    jwks_uri = "https://www.googleapis.com/oauth2/v3/certs",
 )
 
 #These will need to be changed according to your creditionals
