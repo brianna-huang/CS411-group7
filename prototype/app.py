@@ -31,10 +31,8 @@ mysql.init_app(app)
 # cursor.execute("SELECT email from Users")
 # users = cursor.fetchall()
 
-
 def get_value_related_info(value):
     return (value)
-
 
 @app.route('/', methods=['POST', 'GET'])
 def getvalue():
@@ -156,7 +154,7 @@ def login():
             msg = 'Logged in successfully!'
             return render_template('index.html', msg = msg)
         else:
-            msg = 'Incorrect username / password!'
+            msg = 'Incorrect username or password!'
     return render_template('login.html', msg = msg)
 
 
