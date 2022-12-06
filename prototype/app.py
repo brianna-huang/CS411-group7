@@ -108,7 +108,6 @@ def get_target_products(ingredient):
 
 
 
-
 @app.route('/signup', methods =['GET', 'POST'])
 def signup():
     msg = ''
