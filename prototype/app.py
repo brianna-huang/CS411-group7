@@ -3,6 +3,7 @@ import json
 import requests
 from flaskext.mysql import MySQL
 import flask_login
+import re
 
 # Enter into terminal to install framework & libraries:
 # python3 -m venv venv
@@ -19,16 +20,16 @@ app.secret_key = 'your secret key'
 
 #These will need to be changed according to your creditionals
 app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'FurrySpaniel3651761' # ENTER YOUR DATABASE PASSWORD HERE
+app.config['MYSQL_DATABASE_PASSWORD'] = 'your_password' # ENTER YOUR DATABASE PASSWORD HERE
 app.config['MYSQL_DATABASE_DB'] = 'userprofile'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 
 mysql.init_app(app)
 
-conn = mysql.connect()
-cursor = conn.cursor()
-cursor.execute("SELECT email from Users")
-users = cursor.fetchall()
+# conn = mysql.connect()
+# cursor = conn.cursor()
+# cursor.execute("SELECT email from Users")
+# users = cursor.fetchall()
 
 
 def get_value_related_info(value):
@@ -40,7 +41,7 @@ def getvalue():
     if request.method == "POST":
         HTML_info = request.form['search']
         return get_value_related_info(HTML_info)
-    return render_template('form.html', text="")
+    return render_template('index.html', text="")
 
 @app.route('/search', methods=['POST'])
 def get_recipe_ingredients():
@@ -107,46 +108,56 @@ def get_target_products(ingredient):
         return_string = return_string + item + ":<br/>" + "price:" + return_dict[item][1] + "<br/>" + "url: " + return_dict[item][0] + "<br/>"
     return return_string
 
-@app.route('/signup', methods=['GET','POST'])
-def register():
-    # Output message if something goes wrong...
+
+
+
+@app.route('/signup', methods =['GET', 'POST'])
+def signup():
     msg = ''
-    # Check if "username", "password" and "email" POST requests exist (user submitted form)
-    if request.method == 'POST' and 'username' in request.form and 'password' in request.form and 'email' in request.form:
-        # Create variables for easy access
+    if request.method == 'POST' and 'username' in request.form and 'password' in request.form and 'email' in request.form :
         username = request.form['username']
         password = request.form['password']
         email = request.form['email']
-        # Check if account exists using MySQL
-        cursor = mysql.connection.cursor(MySQL.cursors.DictCursor)
-        cursor.execute('SELECT * FROM accounts WHERE username = %s', (username,))
+        conn = mysql.connect()
+        cursor = conn.cursor()
+        cursor.execute('SELECT * FROM accounts WHERE username = % s', (username, ))
         account = cursor.fetchone()
-        # If account exists show error and validation checks
         if account:
-            msg = 'Account already exists!'
+            msg = 'Account already exists !'
+        elif not re.match(r'[^@]+@[^@]+\.[^@]+', email):
+            msg = 'Invalid email address !'
+        elif not re.match(r'[A-Za-z0-9]+', username):
+            msg = 'Username must contain only characters and numbers !'
         elif not username or not password or not email:
-            msg = 'Please fill out the form!'
+            msg = 'Please fill out the form !'
         else:
-            # Account doesnt exists and the form data is valid, now insert new account into accounts table
-            cursor.execute('INSERT INTO accounts VALUES (NULL, %s, %s, %s)', (username, password, email,))
+            cursor.execute('INSERT INTO accounts VALUES (NULL, % s, % s, % s)', (username, password, email, ))
             mysql.connection.commit()
-            msg = 'You have successfully registered!'
+            msg = 'You have successfully registered !'
     elif request.method == 'POST':
-        # Form is empty... (no POST data)
-        msg = 'Please fill out the form!'
-    # Show registration form with message (if any)
-    return render_template('index.html', msg=msg)
+        msg = 'Please fill out the form !'
+    return render_template('signup.html', msg = msg)
 
 
-@app.route('/login', methods=['POST', 'GET'])
+@app.route('/login', methods =['GET', 'POST'])
 def login():
-    # login code goes here
-    print("login")
-
-@app.route('/signup', methods=['POST', 'GET'])
-def signup():
-    # sign up code goes here
-    print("signup")
+    msg = ''
+    if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
+        username = request.form['username']
+        password = request.form['password']
+        conn = mysql.connect()
+        cursor = conn.cursor()
+        cursor.execute('SELECT * FROM accounts WHERE username = % s', (username, ))
+        account = cursor.fetchone()
+        if account:
+            session['loggedin'] = True
+            session['id'] = account['id']
+            session['username'] = account['username']
+            msg = 'Logged in successfully!'
+            return render_template('index.html', msg = msg)
+        else:
+            msg = 'Incorrect username / password!'
+    return render_template('login.html', msg = msg)
 
 
 if __name__ == '__main__':
