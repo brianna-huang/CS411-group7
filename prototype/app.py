@@ -19,7 +19,7 @@ app.secret_key = 'your secret key'
 
 #These will need to be changed according to your creditionals
 app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'FurrySpaniel3651761' # ENTER YOUR DATABASE PASSWORD HERE
+app.config['MYSQL_DATABASE_PASSWORD'] = 'your_password' # ENTER YOUR DATABASE PASSWORD HERE
 app.config['MYSQL_DATABASE_DB'] = 'userprofile'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 
