@@ -4,10 +4,32 @@
     <Title>Sign Up Now!</Title>
     <link rel="stylesheet" href="signup.css"> 
 </head>
-<body> 
-    <p class="fname">First Name: </p>
-    <p class="lname">Last Name: </p>
-    <p class="email">Email address: </p>
-    <input type="checkbox">
+<body>
+    <p class="proj-title"> Welcome to WeShop!</p>
+    <form>
+        <button formaction="http://127.0.0.1:5500/prototype/signup" class="sign-up">Sign Up!</button>
+    </form>
+    <form>
+        <button formaction="http://127.0.0.1:5500/prototype/login" class="log">Login</button>
+    </form>
+
+    <button class="team">Meet the team!</button>  
+
+    <div class="login-box"> 
+        <p class="box">Sign Up!</p>
+        <p class="fname"> First Name: </p>
+        <form><input class="fname" name="fname" placeholder="Enter your first name"></input></form>
+        
+        <p class="lname"> Last Name: </p>
+        <form><input class="lname" name="lname" placeholder="Enter your last name"></input></form>
+        <p class="lname"> Email: </p>
+        <form><input class="email" name="email" placeholder="Enter your email address"></input></form>
+        
+        <p class="lname">Account Password: </p>
+        <form><input class="lname" name="password" placeholder="Enter a password"></input></form>
+
+        <button class = "lname">Sign Up!</button>
+    </div>
+
 </body>
 </html>
