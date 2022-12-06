@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <Title>Login Portal</Title>
+    <link rel="stylesheet" href="login.css"> 
+</head>
+<body>
+    <p class="proj-title"> Welcome to WeShop!</p>
+    <form>
+        <button formaction="http://127.0.0.1:5500/prototype/signup.html" class="sign-up">Sign Up!</button>
+    </form>
+    <form>
+        <button formaction="http://127.0.0.1:5500/prototype/login.html" class="log">Login</button>
+    </form>
+
+    <button class="team">Meet the team!</button>  
+    
+    <div align="center">
+      <div align="center" class="border">
+         <div class="header">
+            <h1 class="word">Login</h1>
+         </div></br></br></br>
+        <h2 class="word">
+            <form action="http://127.0.0.1:5500/prototype/login.html" method="post">
+              <div class="msg">{{ msg }}</div>
+                <input id="username" name="username" type="text" placeholder="Enter Your Username" class="textbox"/></br></br>
+                <input id="password" name="password" type="password" placeholder="Enter Your Password" class="textbox"/></br></br></br>
+                <input type="submit" class="btn" value="Sign In"></br></br>
+            </form>
+        </h2>
+        <p class="bottom">Don't have an account?  <a class="bottom" href="http://127.0.0.1:5500/prototype/signup.html"> Sign Up here</a></p>
+      </div>
+    </div>
+</body>
+
+    </html>

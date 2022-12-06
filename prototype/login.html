@@ -7,23 +7,34 @@
     <body>
         <p class="proj-title"> Welcome to WeShop!</p>
         <form>
-            <button formaction="http://127.0.0.1:5500/prototype/signup" class="sign-up">Sign Up!</button>
+            <button formaction="http://127.0.0.1:5500/prototype/signup.html" class="sign-up">Sign Up!</button>
         </form>
         <form>
-            <button formaction="http://127.0.0.1:5500/prototype/login" class="log">Login</button>
+            <button formaction="http://127.0.0.1:5500/prototype/login.html" class="log">Login</button>
         </form>
 
         <button class="team">Meet the team!</button>  
 
         <div class="login-box"> 
             <p class="box">Login Portal</p>
-            
-            <p class="username"> Username: </p>
-            <form><input class="username" name="username" placeholder="Enter a username"></input></form>
-            <p class="password">Password: </p>
-            <form><input class="password" name="password" placeholder="Enter a password"></input></form>
+            <form action="http://127.0.0.1:5500/prototype/login.html" method="post">
+                  <input id="username" name="username" type="text" placeholder="Enter Your Username" class="textbox"/></br></br>
+                  <input id="password" name="password" type="password" placeholder="Enter Your Password" class="textbox"/></br></br></br>
+                  <input type="submit" class="btn" value="Sign In"></br></br>
+              </form>
 
-            <button class = "password">Log In</button>
+              <p class="bottom">Don't have an account?  <a class="bottom" href="http://127.0.0.1:5500/prototype/signup.html"> Sign Up here</a></p>
+<!--             
+            <p class="username"> Username: </p>
+            <form method="post">
+                <input class="username" name="username" placeholder="Enter a username"></input>
+            </form>
+            <p class="password">Password: </p>
+            <form>
+                <input class="password" name="password" placeholder="Enter a password"></input>
+            </form>
+
+            <button class = "password">Log In</button> -->
         </div>
 
     </body>
