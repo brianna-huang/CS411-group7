@@ -64,7 +64,7 @@ def getvalue():
     return render_template('form.html', text="")
 
 # Authentication
-@app.route('/login')
+@app.route('/googlelogin')
 def login():
     google = oauth.create_client('google')  # create the google oauth client
     redirect_uri = url_for('authorize', _external=True)
@@ -153,3 +153,5 @@ def get_target_products(ingredient):
 if __name__ == '__main__':
     app.debug = True
     app.run()
+
+
