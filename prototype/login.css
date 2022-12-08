@@ -46,8 +46,9 @@
     color: #FFFFFF;
     font-style: oblique;
     font-weight: bold;
-    font-size: 85px;
-    margin-top: 1px;
+    font-size: 75px;
+    margin-top: 20px;
+    margin-left: -75px;
     text-align: center
 }
 
