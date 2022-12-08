@@ -2,14 +2,13 @@
 <html>
     <head>
         <Title>CS411's WeShop</Title>
-        <link rel="stylesheet" href="index.css"> 
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">         
 
     </head>
         <body>
             <p class="proj-title"> Welcome to WeShop!</p>
             <p class="description"> The purpose of this web application is to see if your favorite foods are accessible. All you have to do is find a recipe you like, copy the link to the recipe, and paste it in our search bar. The application will then check to see if the respective ingredients are available at your local Target!</p>
-            <!-- <button class="sign-up">Sign Up!</button> -->
-            <!-- <button class="log">Login</button> -->
+
             <form>
                 <button formaction="http://127.0.0.1:5500/signup" class="sign-up">Sign Up!</button>
             </form>
@@ -18,7 +17,8 @@
             </form>
 
             <button class="team">Meet the team!</button>  
-            {{msg}}
+
+            </br><div class = "msg">{{ msg }}</div></br></br></br>
             <div>            
                 <form method="post" action="http://127.0.0.1:5000/search">
                     <input name="search" class="search-bar" type="text" placeholder="Insert a link of your favorite recipe!">

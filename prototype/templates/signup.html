@@ -2,7 +2,7 @@
 <html>
 <head>
     <Title>Sign Up Now!</Title>
-    <link rel="stylesheet" href="signup.css"> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">         
 </head>
 <body>
     <p class="proj-title"> Welcome to WeShop!</p>
@@ -18,7 +18,7 @@
     <div>
         <div class="border">
             <div class="header">
-            <h1 class="word">Register</h1>
+            <h1 class="word">Sign Up</h1>
             {{msg}}
             </div></br></br></br>
         <h2 class="word">

@@ -15,18 +15,23 @@
 
     <button class="team">Meet the team!</button>  
 
-    <div class="login-box"> 
-        <p class="box">Sign Up for an Account!</p>
-        <form action="http://127.0.0.1:5000/signup" method="post">
-            <input id="username" name="first_name" type="text" placeholder="Enter Your First Name" class="textbox"/></br></br>
-            <input id="username" name="last_name" type="text" placeholder="Enter Your Last Name" class="textbox"/></br></br>
-            <input id="email" name="email" type="text" placeholder="Enter Your Email Address" class="textbox"/></br></br>
-            <input id="password" name="password" type="password" placeholder="Enter Your Password" class="textbox"/></br></br>
-            <input type="submit" class="btn" value="Sign Up"></br>
-        </form>
-
+    <div>
+        <div class="border">
+            <div class="header">
+            <h1 class="word">Sign Up</h1>
+            {{msg}}
+            </div></br></br></br>
+        <h2 class="word">
+            <form action="http://127.0.0.1:5000/signup" method="post">
+                <input id="username" name="first_name" type="text" placeholder="Enter Your First Name" class="textbox"/></br></br>
+                <input id="username" name="last_name" type="text" placeholder="Enter Your Last Name" class="textbox"/></br></br>
+                <input id="email" name="email" type="text" placeholder="Enter Your Email Address" class="textbox"/></br></br>
+                <input id="password" name="password" type="password" placeholder="Enter Your Password" class="textbox"/></br></br>
+                <input type="submit" class="btn" value="Sign Up"></br>
+            </form>
+        </h2>
         <p class="bottom">Already have an account?  <a class="bottom" href="http://127.0.0.1:5500/prototype/login.html"> Sign In here</a></p>
-        
+        </div>
     </div>
 
 </body>

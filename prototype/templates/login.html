@@ -2,7 +2,7 @@
 <html>
 <head>
     <Title>Login Portal</Title>
-    <link rel="stylesheet" href="login.css"> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">         
 </head>
 <body>
     <p class="proj-title"> Welcome to WeShop!</p>
@@ -19,7 +19,6 @@
       <div class="border">
          <div class="header">
             <h1 class="word">Login</h1>
-            {{msg}}
          </div></br></br></br>
         <h2 class="word">
             <form action="http://127.0.0.1:5000/login" method="post">
