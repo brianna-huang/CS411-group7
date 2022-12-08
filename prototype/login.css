@@ -1,33 +1,38 @@
 .header{
-    padding: 5px 120px;
-    width: 150px;
+    padding: 15px 250px;
+    width: 10px;
     height: 70px;
-    background-color: #236B8E;
 }
 
 .border{
-    padding: 80px 50px;
-    width: 400px;
+    padding: 20px 10px;
+    width: 10px;
     height: 450px;
-    border: 1px solid #236B8E;
-    border-radius: 0px;
-    background-color: #9AC0CD;
+    border: 1px solid red;
+    border-radius: 50px;
+    background-color: pink;
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 20px;
+    width: 500px;
+
 }
 
 .btn {
     padding: 10px 40px;
-    background-color: #236B8E;
+    background-color: purple;
     color: #FFFFFF;
     font-style: oblique;
     font-weight: bold;
-    border-radius: 10px;
+    border-radius: 20px;
 }
 
 .textbox{
-    padding: 10px 40px;
-    background-color: #236B8E;
-    text-color: #FFFFFF;
-    border-radius: 10px;
+    padding: 10px 80px;
+    background-color: purple;
+    text-align: center;
+    color: #FFFFFF;
+    border-radius: 50px;
 }
      
 ::placeholder {
@@ -37,10 +42,13 @@
     font-weight: bold;
 }
 
-.word{
+.word1{
     color: #FFFFFF;
     font-style: oblique;
     font-weight: bold;
+    font-size: 85px;
+    margin-top: 1px;
+    text-align: center
 }
 
 .bottom{
@@ -49,16 +57,6 @@
     font-weight: bold;
 }
 
-.proj-title{
-    font-family: cursive;
-    color: black;
-    font-size: 36px;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 5px;
-    margin-top: 50px;
-    text-decoration: underline;
-}
 .sign-up{
     background-color:blue;
     border-style: solid;
@@ -85,11 +83,6 @@
     position: absolute;
     top: 0;
     right: 0;
-}
-.msg{
-    font-size: 25px;
-    font-weight: bold;
-    text-align: center;
 }
 .team{
     background-color:blue;
