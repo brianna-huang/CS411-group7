@@ -1,4 +1,4 @@
-.header{
+/*.header{
     padding: 5px 120px;
     width: 150px;
     height: 70px;
@@ -26,7 +26,7 @@
 .textbox{
     padding: 10px 40px;
     background-color: #236B8E;
-    text-color: #FFFFFF;
+    color: #FFFFFF;
     border-radius: 10px;
 }
      
@@ -125,4 +125,128 @@
     display: block;
     width: 500px;
     height:30px;
+}
+*/
+.header{
+    padding: 15px 250px;
+    width: 10px;
+    height: 70px;
+}
+
+.border{
+    padding: 20px 10px;
+    width: 10px;
+    height: 450px;
+    border: 1px solid red;
+    border-radius: 50px;
+    background-color: pink;
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 20px;
+    width: 500px;
+
+}
+
+.btn {
+    padding: 10px 40px;
+    background-color: purple;
+    color: #FFFFFF;
+    font-style: oblique;
+    font-weight: bold;
+    border-radius: 20px;
+}
+
+.textbox{
+    padding: 10px 80px;
+    background-color: purple;
+    text-align: center;
+    color: #FFFFFF;
+    border-radius: 50px;
+}
+     
+::placeholder {
+    color: #FFFFFF;
+    opacity: 1;
+    font-style: oblique;
+    font-weight: bold;
+}
+
+.word1{
+    color: #FFFFFF;
+    font-style: oblique;
+    font-weight: bold;
+    font-size: 50px;
+    margin-left: -70px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.bottom{
+    color: #236B8E;
+    font-style: oblique;
+    font-weight: bold;
+}
+
+.sign-up{
+    background-color:blue;
+    border-style: solid;
+    color: white;
+    height: 40px;
+    width: 100px;
+    margin: 8px;
+    border-radius: 20px;
+    margin-top: 1px;
+    margin-right: 2px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.log{
+    background-color:blue;
+    border-style: solid;
+    color: white;
+    height: 40px;
+    width: 100px;
+    border-radius: 20px;
+    margin-top: 1px;
+    margin-right: 108px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.team{
+    background-color:blue;
+    border-style: solid;
+    color: white;
+    height: 40px;
+    width: 100px;
+    margin: 8px;
+    border-radius: 20px;
+    margin-top: 1px;
+    margin-right: 217px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.log:hover{
+    text-decoration: underline;
+}
+.sign-up:hover {
+    text-decoration: underline;
+}
+.team:hover{
+    text-decoration: underline;
+}
+.targetbanner{
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+.search-bar{
+    margin-bottom:25px;
+    display: block;
+    width: 1417px;
+    height:30px;
+
 }
