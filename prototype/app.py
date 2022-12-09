@@ -23,7 +23,7 @@ app.secret_key = 'your secret key'
 
 #These will need to be changed according to your creditionals
 app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'your_password' # ENTER YOUR DATABASE PASSWORD HERE
+app.config['MYSQL_DATABASE_PASSWORD'] = 'your password' # ENTER YOUR DATABASE PASSWORD HERE
 app.config['MYSQL_DATABASE_DB'] = 'userprofile'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 
@@ -55,7 +55,7 @@ def get_value_related_info(value):
 
 # Authentication
 @app.route('/googlelogin')
-def login():
+def google_login():
     google = oauth.create_client('google')  # create the google oauth client
     redirect_uri = url_for('authorize', _external=True)
     return google.authorize_redirect(redirect_uri)
@@ -132,7 +132,7 @@ def get_target_products(ingredient):
     url = "https://target-com-store-product-reviews-locations-data.p.rapidapi.com/product/search"
     querystring = {"store_id":"3991","keyword":ingredient,"offset":"0","limit":"2","sponsored":"1","rating":"0"}
     headers = {
-        "X-RapidAPI-Key": "a4d544596bmshbf04d2448a8ada5p1fec1cjsn12b17682f845",
+        "X-RapidAPI-Key": "0d56b851c9msh6f98a10ad6a3725p123f86jsnaefb33f76036",
         "X-RapidAPI-Host": "target-com-store-product-reviews-locations-data.p.rapidapi.com"
     }
     response = requests.request('GET', url, headers=headers, params=querystring)
@@ -182,7 +182,7 @@ def login():
         password = request.form['password']
         conn = mysql.connect()
         cursor = conn.cursor()
-        cursor.execute('SELECT * FROM users WHERE email = % s', (email, ))
+        cursor.execute('SELECT * FROM users WHERE email = %s AND password = %s', (email, password))
         account = cursor.fetchone()
         if account:
             session['loggedin'] = True
