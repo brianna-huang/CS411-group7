@@ -88,7 +88,7 @@ def get_recipe_ingredients():
     payload = getvalue().encode()
     headers = {
         "content-type": "text/plain",
-        "X-RapidAPI-Key": "0d56b851c9msh6f98a10ad6a3725p123f86jsnaefb33f76036",
+        "X-RapidAPI-Key": "",
         "X-RapidAPI-Host": "mycookbook-io1.p.rapidapi.com"
     }
     response = requests.request("POST", url, data=payload, headers=headers)
