@@ -1,5 +1,3 @@
-As a logged-in user, I want to be able to search for a food allergy so that I can add it to my profile.
+As a logged-in user, I want to get the ingredients and prices for an online recipe.
 
-Description: Refer to user login story for how user logs in to website. Once logged in, a user will click on the 
-Allergy section of the website. This will bring them to a page where they can search for an allergy, select that 
-allergy, and add it to their list of allergies.
+Description: A user can provide the link to an online recipe of their choice on the main page and obtain a list of incredients with their quantity, prices from Target, and the link to the specific items on the Target website.

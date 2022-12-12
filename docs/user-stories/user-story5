@@ -1,5 +1,0 @@
-As a logged-in user, I want to be able see the price for each ingredient while searching for the recipe.
-
-Description: Refer to user login story for how user logs in to website. Once logged in, a user can import 
-an online recipe of their choice on the main page and obtain a list of incredients with their prices from 
-the grocery stores given by the find grocery stores near me story. 

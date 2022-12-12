@@ -1,6 +1,3 @@
-As a logged-in user, I want to be able to search for ingredients I have at home so that I can add them to my online food pantry.
+As a user, I want to be able to create an account/login using my google account.
 
-Description: Refer to user login story for how user logs in to website. Once a user is logged in, they will click on the food pantry 
-part of the website. This will take them to a page in which they can see any existing ingredients they’ve added to their pantry and 
-also search for new ingredients. To search for new ingredients, they type in the name of the ingredient into the search bar and they 
-will be able to select the same or a similar ingredient to the one they searched for and add it to the pantry.
+Description: The user will be able to create an account and login to the website by using their Google credentials and Google OAuth 2.0.

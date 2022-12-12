@@ -38,8 +38,8 @@ mysql.init_app(app)
 oauth = OAuth(app)
 google = oauth.register(
     name='google',
-    client_id=("872397603918-5m0upqbbck7eesob44d9atv81247dku4.apps.googleusercontent.com"),
-    client_secret=("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"),
+    client_id= "your client id",
+    client_secret="your client secret",
     access_token_url='https://accounts.google.com/o/oauth2/token',
     access_token_params=None,
     authorize_url='https://accounts.google.com/o/oauth2/auth',
@@ -88,7 +88,7 @@ def get_recipe_ingredients():
     payload = getvalue().encode()
     headers = {
         "content-type": "text/plain",
-        "X-RapidAPI-Key": "",
+        "X-RapidAPI-Key": "your api key",
         "X-RapidAPI-Host": "mycookbook-io1.p.rapidapi.com"
     }
     response = requests.request("POST", url, data=payload, headers=headers)
@@ -110,7 +110,7 @@ def parse_ingredients(recipe_ingredients):
     payload = "ingredientList=" + recipe_ingredients + "&servings=2"
     headers = {
         "content-type": "application/x-www-form-urlencoded",
-        "X-RapidAPI-Key": "a4e2fc244bmshd6877fd389df594p162eb8jsn5b123867a7d7",
+        "X-RapidAPI-Key": "your api key",
         "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
     }
     response = requests.request("POST", url, data=payload, headers=headers)
@@ -132,7 +132,7 @@ def get_target_products(ingredient):
     url = "https://target-com-store-product-reviews-locations-data.p.rapidapi.com/product/search"
     querystring = {"store_id":"3991","keyword":ingredient,"offset":"0","limit":"2","sponsored":"1","rating":"0"}
     headers = {
-        "X-RapidAPI-Key": "0d56b851c9msh6f98a10ad6a3725p123f86jsnaefb33f76036",
+        "X-RapidAPI-Key": "your api key",
         "X-RapidAPI-Host": "target-com-store-product-reviews-locations-data.p.rapidapi.com"
     }
     response = requests.request('GET', url, headers=headers, params=querystring)
